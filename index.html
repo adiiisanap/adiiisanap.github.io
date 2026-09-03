@@ -653,75 +653,37 @@
 
                 <div class="technology-grid reveal">
 
+    <div class="technology-card toolkit-card" data-tool="pic18">
+        <i class="fa-solid fa-microchip"></i>
+        <span>PIC18</span>
+    </div>
 
-                    <div class="technology-card">
+    <div class="technology-card toolkit-card" data-tool="8051">
+        <i class="fa-solid fa-memory"></i>
+        <span>8051</span>
+    </div>
 
-                        <i class="fa-solid fa-microchip"></i>
+    <div class="technology-card toolkit-card" data-tool="arm7">
+        <i class="fa-solid fa-gears"></i>
+        <span>ARM7</span>
+    </div>
 
-                        <span>
-                            PIC18
-                        </span>
+    <div class="technology-card toolkit-card" data-tool="embedded-c">
+        <i class="fa-solid fa-code"></i>
+        <span>Embedded C</span>
+    </div>
 
-                    </div>
+    <div class="technology-card toolkit-card" data-tool="python">
+        <i class="fa-brands fa-python"></i>
+        <span>Python</span>
+    </div>
 
+    <div class="technology-card toolkit-card" data-tool="iot">
+        <i class="fa-solid fa-wifi"></i>
+        <span>IoT</span>
+    </div>
 
-                    <div class="technology-card">
-
-                        <i class="fa-solid fa-memory"></i>
-
-                        <span>
-                            8051
-                        </span>
-
-                    </div>
-
-
-                    <div class="technology-card">
-
-                        <i class="fa-solid fa-gears"></i>
-
-                        <span>
-                            ARM7
-                        </span>
-
-                    </div>
-
-
-                    <div class="technology-card">
-
-                        <i class="fa-solid fa-code"></i>
-
-                        <span>
-                            Embedded C
-                        </span>
-
-                    </div>
-
-
-                    <div class="technology-card">
-
-                        <i class="fa-brands fa-python"></i>
-
-                        <span>
-                            Python
-                        </span>
-
-                    </div>
-
-
-                    <div class="technology-card">
-
-                        <i class="fa-solid fa-wifi"></i>
-
-                        <span>
-                            IoT
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
+</div>
 
 
             <div class="soft-skills reveal">
@@ -1383,7 +1345,36 @@
 
     </footer>
 
+<!-- TECHNICAL TOOLKIT MODAL -->
+<div class="toolkit-modal" id="toolkitModal" aria-hidden="true">
 
+    <div class="toolkit-overlay"></div>
+
+    <div class="toolkit-content">
+
+        <button class="toolkit-close" id="toolkitClose" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="toolkit-icon" id="toolkitIcon">
+            <i class="fa-solid fa-microchip"></i>
+        </div>
+
+        <span class="toolkit-label" id="toolkitLabel">
+            TECHNICAL TOOLKIT
+        </span>
+
+        <h2 id="toolkitTitle">PIC18</h2>
+
+        <p id="toolkitDescription">
+            PIC18 is an 8-bit microcontroller family used in embedded applications.
+        </p>
+
+        <div class="toolkit-points" id="toolkitPoints"></div>
+
+    </div>
+
+</div>
 
     <!-- ==========================================
          PROJECT MODAL
