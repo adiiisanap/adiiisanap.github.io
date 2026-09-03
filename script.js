@@ -1314,3 +1314,192 @@ window.addEventListener(
 
     }
 );
+/* =====================================================
+   TECHNICAL TOOLKIT POPUP
+===================================================== */
+
+const toolkitData = {
+
+    pic18: {
+        title: "PIC18",
+        icon: "fa-solid fa-microchip",
+        description:
+            "PIC18 is an 8-bit microcontroller family widely used in embedded systems, automation and hardware control applications.",
+        points: [
+            "8-bit microcontroller architecture",
+            "GPIO and peripheral interfacing",
+            "ADC, timers and interrupts",
+            "Embedded C programming",
+            "Real-time control applications"
+        ]
+    },
+
+    "8051": {
+        title: "8051",
+        icon: "fa-solid fa-memory",
+        description:
+            "8051 is a classic 8-bit microcontroller architecture that provides a strong foundation in embedded-system programming and hardware interfacing.",
+        points: [
+            "8-bit microcontroller architecture",
+            "Digital I/O and GPIO control",
+            "Timers and counters",
+            "Serial communication",
+            "Embedded-system fundamentals"
+        ]
+    },
+
+    arm7: {
+        title: "ARM7",
+        icon: "fa-solid fa-gears",
+        description:
+            "ARM7 is a 32-bit RISC-based processor family used in embedded systems requiring efficient processing and peripheral control.",
+        points: [
+            "32-bit RISC architecture",
+            "Efficient embedded processing",
+            "Interrupt and peripheral handling",
+            "Embedded C development",
+            "Microcontroller-based applications"
+        ]
+    },
+
+    "embedded-c": {
+        title: "Embedded C",
+        icon: "fa-solid fa-code",
+        description:
+            "Embedded C is used to program microcontrollers and control hardware peripherals by connecting software logic with electronic systems.",
+        points: [
+            "Microcontroller programming",
+            "Register-level programming",
+            "GPIO and peripheral control",
+            "Timers, ADC and interrupts",
+            "Hardware-software integration"
+        ]
+    },
+
+    python: {
+        title: "Python",
+        icon: "fa-brands fa-python",
+        description:
+            "Python is a high-level programming language useful for automation, data processing, scripting and engineering applications.",
+        points: [
+            "Clean and readable programming",
+            "Automation and scripting",
+            "Data processing",
+            "Project prototyping",
+            "Engineering applications"
+        ]
+    },
+
+    iot: {
+        title: "IoT",
+        icon: "fa-solid fa-wifi",
+        description:
+            "IoT connects sensors, embedded controllers and networks to collect, process and monitor data remotely in real time.",
+        points: [
+            "ESP32 and sensor integration",
+            "Wi-Fi-based communication",
+            "Real-time monitoring",
+            "Web dashboard concepts",
+            "Automation and connected systems"
+        ]
+    }
+
+};
+
+
+const toolkitModal = document.getElementById("toolkitModal");
+const toolkitClose = document.getElementById("toolkitClose");
+const toolkitIcon = document.getElementById("toolkitIcon");
+const toolkitLabel = document.getElementById("toolkitLabel");
+const toolkitTitle = document.getElementById("toolkitTitle");
+const toolkitDescription = document.getElementById("toolkitDescription");
+const toolkitPoints = document.getElementById("toolkitPoints");
+
+
+function openToolkit(toolID) {
+
+    const tool = toolkitData[toolID];
+
+    if (!tool) return;
+
+    toolkitIcon.innerHTML = `<i class="${tool.icon}"></i>`;
+
+    toolkitLabel.textContent = "TECHNICAL TOOLKIT";
+
+    toolkitTitle.textContent = tool.title;
+
+    toolkitDescription.textContent = tool.description;
+
+    toolkitPoints.innerHTML = "";
+
+    tool.points.forEach(point => {
+
+        const item = document.createElement("div");
+
+        item.innerHTML = `
+            <i class="fa-solid fa-check"></i>
+            <span>${point}</span>
+        `;
+
+        toolkitPoints.appendChild(item);
+
+    });
+
+    toolkitModal.classList.add("active");
+
+    toolkitModal.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("modal-open");
+}
+
+
+function closeToolkit() {
+
+    toolkitModal.classList.remove("active");
+
+    toolkitModal.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("modal-open");
+}
+
+
+/* TOOLKIT CARD CLICK */
+
+document.querySelectorAll(".toolkit-card").forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        openToolkit(card.dataset.tool);
+
+    });
+
+});
+
+
+/* CLOSE BUTTON */
+
+toolkitClose.addEventListener("click", closeToolkit);
+
+
+/* CLICK OUTSIDE */
+
+document.querySelector(".toolkit-overlay").addEventListener(
+    "click",
+    closeToolkit
+);
+
+
+/* ESC KEY */
+
+document.addEventListener("keydown", event => {
+
+    if (
+        event.key === "Escape" &&
+        toolkitModal.classList.contains("active")
+    ) {
+
+        closeToolkit();
+
+    }
+
+});
